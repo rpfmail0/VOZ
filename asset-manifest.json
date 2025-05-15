@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/VOZ/static/css/main.aa990741.css",
-    "main.js": "/VOZ/static/js/main.f2331809.js",
+    "main.css": "/VOZ/static/css/main.a6d8aac5.css",
+    "main.js": "/VOZ/static/js/main.518839b8.js",
     "index.html": "/VOZ/index.html",
-    "main.aa990741.css.map": "/VOZ/static/css/main.aa990741.css.map",
-    "main.f2331809.js.map": "/VOZ/static/js/main.f2331809.js.map"
+    "main.a6d8aac5.css.map": "/VOZ/static/css/main.a6d8aac5.css.map",
+    "main.518839b8.js.map": "/VOZ/static/js/main.518839b8.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa990741.css",
-    "static/js/main.f2331809.js"
+    "static/css/main.a6d8aac5.css",
+    "static/js/main.518839b8.js"
   ]
 }
