@@ -1,0 +1,7 @@
+.pictogram-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Ajusta el tamaño mínimo de columna según sea necesario */
+  gap: 10px; /* Espacio entre pictogramas */
+  padding: 10px;
+  justify-items: center;
+}

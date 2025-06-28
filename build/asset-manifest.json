@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/VOZ/static/css/main.a6d8aac5.css",
+    "main.js": "/VOZ/static/js/main.761eb2cc.js",
+    "index.html": "/VOZ/index.html",
+    "main.a6d8aac5.css.map": "/VOZ/static/css/main.a6d8aac5.css.map",
+    "main.761eb2cc.js.map": "/VOZ/static/js/main.761eb2cc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a6d8aac5.css",
+    "static/js/main.761eb2cc.js"
+  ]
+}

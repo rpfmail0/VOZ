@@ -1,0 +1,28 @@
+.pictogram {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 5px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.pictogram:hover {
+  transform: scale(1.05);
+}
+
+.pictogram-image {
+  max-width: 80px; /* Ajusta el tamaño máximo según sea necesario */
+  max-height: 80px; /* Ajusta el tamaño máximo según sea necesario */
+  object-fit: contain; /* Cambiado a 'contain' para asegurar que la imagen completa sea visible */
+  display: block;
+  margin: 0 auto 5px auto;
+}
+
+.pictogram-text {
+  margin: 0;
+  font-size: 0.9em;
+  color: #333;
+}

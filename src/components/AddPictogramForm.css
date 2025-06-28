@@ -1,0 +1,52 @@
+.add-pictogram-form {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.add-pictogram-form h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.add-pictogram-form div {
+  margin-bottom: 10px;
+}
+
+.add-pictogram-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.add-pictogram-form input[type="text"] {
+  width: calc(100% - 22px); /* Ajustar para padding y borde */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.add-pictogram-form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-pictogram-form button:hover {
+  background-color: #0056b3;
+}

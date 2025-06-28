@@ -1,0 +1,185 @@
+Abrir CMD
+
+ir a la carpeta C:/VOZ-IA o donde sea que este el raiz de la aplicación
+
+ejecutar: npm run build
+
+Ejecuta el comando de construcción: Abre una terminal en el directorio raíz de tu proyecto (c:/VOZ-IA) y ejecuta el siguiente comando:
+
+npm run build
+
+bash
+
+
+Este comando ejecutará el script de construcción definido en tu archivo package.json.
+
+Carpeta build: Una vez que el comando termine, se creará una nueva carpeta llamada build en el directorio raíz de tu proyecto. Esta carpeta contiene todos los archivos estáticos listos para ser desplegados (archivos HTML, CSS, JavaScript optimizados, imágenes, etc.).
+
+Sube el contenido de la carpeta build a GitHub: Debes subir el contenido de esta carpeta build a tu repositorio de GitHub. La forma más común de hacerlo para GitHub Pages es subir estos archivos a una rama específica (a menudo llamada gh-pages) o a una carpeta docs en tu rama principal, dependiendo de cómo configures GitHub Pages en la configuración de tu repositorio.
+
+Configura GitHub Pages: En la configuración de tu repositorio en GitHub, ve a la sección "Pages" y configura GitHub Pages para servir los archivos desde la rama y carpeta donde subiste el contenido de la carpeta build.
+
+Una vez que GitHub Pages esté configurado y haya procesado los archivos, tu aplicación web estará disponible en una URL HTTPS, y la funcionalidad de dictado por voz debería funcionar en tu smartphone Android.
+
+
+**Resumen de comandos clave:**
+
+```bash
+# Navegar a la carpeta del proyecto
+cd ruta/a/tu/proyecto
+
+# Inicializar Git (si no existe .git)
+git init
+
+# (Opcional: Crear y configurar .gitignore)
+
+# Añadir todos los archivos
+git add .
+
+# Hacer el primer commit
+git commit -m "Mensaje descriptivo del commit"
+
+# (Opcional: Renombrar rama a main)
+git branch -M main
+
+# Añadir el repositorio remoto de GitHub
+git remote add origin https://github.com/rpfmail0/VOZ
+
+# Subir los cambios a GitHub
+git push -u origin master
+
+
+
+
+Aquí tienes los pasos:
+
+Ve a tu repositorio en GitHub: Abre tu navegador y navega a la página de tu repositorio en GitHub (por ejemplo, https://github.com/rpfmail0/VOZ).
+Haz clic en "Settings": En la parte superior de la página de tu repositorio, encontrarás un menú. Haz clic en la opción "Settings" (Configuración).
+Navega a la sección "Pages": En el menú lateral izquierdo de la página de configuración, busca y haz clic en la opción "Pages".
+Configura la fuente: En la sección "Build and deployment", bajo "Source", haz clic en el desplegable y selecciona "Deploy from a branch".
+Selecciona la rama y la carpeta:
+En el siguiente desplegable que aparece, selecciona la rama que contiene tu código desplegable. Basado en tu último git push, es probable que sea la rama master.
+Junto al desplegable de la rama, verás otro desplegable para la carpeta. Haz clic en él y selecciona /docs.
+Guarda los cambios: Haz clic en el botón "Save" (Guardar).
+Después de guardar, GitHub Pages comenzará a construir y desplegar tu sitio desde el contenido de la carpeta docs en la rama que seleccionaste. Esto puede tardar unos minutos. Una vez que el despliegue se complete, la URL de tu sitio de GitHub Pages aparecerá en la misma sección "Pages". Podrás acceder a esta URL (que será HTTPS) desde tu smartphone Android para probar la funcionalidad de dictado por voz.
+
+
+
+Jekyll es un generador de sitios estáticos que GitHub Pages utiliza por defecto, pero tu proyecto es una aplicación de React, que tiene su propio proceso de construcción (npm run build). GitHub Pages está intentando aplicar el proceso de Jekyll a los archivos de tu aplicación React, lo cual causa el fallo.
+
+Para solucionar esto, necesitas indicarle a GitHub Pages que no use Jekyll para tu sitio. La forma de hacerlo es creando un archivo vacío llamado .nojekyll en la raíz de la carpeta que estás desplegando (en tu caso, la carpeta docs).
+
+Aquí tienes los pasos:
+
+Crea un archivo vacío llamado .nojekyll: En tu máquina local, navega a la carpeta C:\BILLAR-IA\docs. Crea un nuevo archivo dentro de esta carpeta y nómbralo .nojekyll. Asegúrate de que el nombre del archivo comience con un punto y no tenga extensión. Puedes hacerlo desde la terminal en la carpeta docs con el siguiente comando:
+
+type nul > .nojekyll
+
+bash
+
+
+(En macOS/Linux, usarías touch .nojekyll)
+
+Añade el archivo a Git: Desde la terminal en la carpeta C:\BILLAR-IA\docs, añade el nuevo archivo al staging area:
+
+git add .nojekyll
+
+bash
+
+
+Confirma los cambios:
+
+git commit -m "Add .nojekyll file to skip Jekyll build"
+
+bash
+
+
+Sube los cambios a GitHub:
+
+git push origin master
+
+bash
+
+
+Una vez que subas el archivo .nojekyll a la rama master en tu repositorio de GitHub, GitHub Pages detectará este archivo y omitirá el proceso de construcción de Jekyll. Esto debería permitir que el despliegue de tu aplicación React se complete correctamente. GitHub Pages debería iniciar automáticamente un nuevo build después de que subas el archivo.
+
+
+
+volvamos a recapitular. Actualice el package.json con el linea "homepage": "https://rpfmail0.github.io/VOZ/",. A partir de ahi que hay que hacer?
+
+Confirma y sube el cambio en package.json al repositorio principal:
+Asegúrate de estar en el directorio C:\BILLAR-IA en tu terminal.
+
+cd C:\VOZ-IA
+git add package.json
+git commit -m "Configure homepage for GitHub Pages"
+git push origin master
+
+
+
+
+
+Parece que tienes dos repositorios Git locales: uno en C:\VOZ-IA (para el código fuente) y otro en C:\BILLAR-IA\docs (para el resultado de la construcción). Estás intentando subir desde el repositorio de docs a la rama master del repositorio principal en GitHub.
+
+Una forma más estándar y sencilla de desplegar aplicaciones de React en GitHub Pages es usar una rama separada, comúnmente llamada gh-pages, para el contenido desplegable. Puedes automatizar el proceso de subir la carpeta build a esta rama usando un paquete npm llamado gh-pages.
+
+Aquí te explico cómo hacerlo:
+
+Instala el paquete gh-pages: Abre una terminal en el directorio raíz de tu proyecto (C:\BILLAR-IA) e instala el paquete como dependencia de desarrollo:
+
+cd C:\VOZ-IA
+npm install --save-dev gh-pages
+
+bash
+
+
+Añade scripts de despliegue en package.json: Abre el archivo package.json en C:\BILLAR-IA y añade dos nuevos scripts en la sección "scripts":
+
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build", // Este script se ejecuta antes de deploy
+    "deploy": "gh-pages -d build" // Este script despliega la carpeta build
+  },
+
+json
+
+
+Asegúrate de que la propiedad "homepage" en package.json siga siendo correcta: "homepage": "https://rpfmail0.github.io/VOZ/",.
+
+Sube los cambios en package.json: Confirma y sube los cambios en package.json a la rama principal (master o main) de tu repositorio de código fuente en GitHub:
+
+cd C:\VOZ-IA
+git add package.json
+git commit -m "Add gh-pages deployment scripts"
+git push origin master
+
+bash
+
+
+(Usa main si esa es tu rama principal).
+
+Despliega la aplicación: Una vez que los cambios en package.json estén en GitHub, puedes desplegar la aplicación ejecutando el script deploy en tu terminal en C:\VOZ-IA:
+
+npm run deploy
+
+bash
+
+
+Este comando ejecutará npm run build primero, y luego usará gh-pages para subir el contenido de la carpeta build a una nueva rama llamada gh-pages en tu repositorio de GitHub.
+
+Configura GitHub Pages: Ve a la configuración de tu repositorio en GitHub, a la sección "Pages". En "Build and deployment" -> "Source", selecciona la rama gh-pages y la carpeta raíz (/). Guarda los cambios.
+
+Este proceso automatiza la subida del contenido de la carpeta build a la rama gh-pages, lo cual es más limpio y evita conflictos con tu rama de código fuente principal.
+
+El primer paso es instalar el paquete gh-pages en el directorio C:\VOZ-IA.
+
+
+
+
+
+
+
+OJO, Para ver nuevos cambios en tu sitio de GitHub Pages, deberás reconstruir y redesplegar la aplicación ejecutando npm run build y luego npm run deploy en el directorio C:\VOZ-IA, y verificar el estado en GitHub Actions.
