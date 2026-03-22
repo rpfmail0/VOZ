@@ -70,7 +70,7 @@ function App() {
   }, [appMode]);
 
   // Hook Dictado
-  const { isListening, startListening } = useVoiceRecognition(handleVoiceCommand, handleVoiceResult);
+  const { isListening, startListening, speechError } = useVoiceRecognition(handleVoiceCommand, handleVoiceResult);
 
   // Función para añadir a la lista de la compra
   const addItemToShoppingList = useCallback(async (text) => {
@@ -198,6 +198,11 @@ function App() {
               <span className="mic-text">{isListening ? 'Escuchando...' : 'Dictar'}</span> 
             </button>
           </div>
+          {speechError && (
+             <div style={{color: 'red', marginTop: '-15px', marginBottom: '15px', fontWeight: 'bold'}}>
+                ⚠️ {speechError}
+             </div>
+          )}
 
           {appMode === 'phraseBuilder' && (
             <CategorySelector onSelectCategory={handleSelectCategory} />
